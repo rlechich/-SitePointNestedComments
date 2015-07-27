@@ -15,18 +15,18 @@ class CommentsController < ApplicationController
     else
       @comment = Comment.new(comment_params)
     end
-    if verify_recaptcha
+    #if verify_recaptcha
       if @comment.save
         flash[:success] = 'Your comment was successfully added!'
         redirect_to root_url
       else
         render 'new'
       end
-    else
-      flash.delete(:recaptcha_error)
-      flash.now[:warning] = 'Invalid captcha'
-      render 'new'
-    end
+    #else
+    #  flash.delete(:recaptcha_error)
+    #  flash.now[:warning] = 'Invalid captcha'
+    #  render 'new'
+    #end
   end
 
   private
